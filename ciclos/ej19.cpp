@@ -7,52 +7,43 @@ mayores.
 #include <vector>
 using namespace std;
 
-int main() {
-    int numero, maximo, segundo_maximo, tercer_maximo;
-    vector<int> numeros;
-    cout << "Ingrese un numero: ";
-    cin >> numero;
-    numeros.push_back(numero);
-    maximo = numero;
-    cout << "Ingrese un numero: ";
-    cin >> numero;
-    numeros.push_back(numero);
-    if (numero > maximo) {
-        segundo_maximo = maximo;
-        maximo = numero;
-    } else {
-        segundo_maximo = numero;
-    }
-    cout << "Ingrese un numero: ";
-    cin >> numero;
-    numeros.push_back(numero);
-    if (numero > maximo) {
-        tercer_maximo = segundo_maximo;
-        segundo_maximo = maximo;
-        maximo = numero;
-    } else if (numero > segundo_maximo) {
-        tercer_maximo = segundo_maximo;
-        segundo_maximo = numero;
-    } else {
-        tercer_maximo = numero;
-    }
-    cout << "Ingrese un numero: ";
-    cin >> numero;
-    while (numero != 0) {
-        numeros.push_back(numero);
-        if (numero > maximo) {
-            tercer_maximo = segundo_maximo;
-            segundo_maximo = maximo;
-            maximo = numero;
-        } else if (numero > segundo_maximo) {
-            tercer_maximo = segundo_maximo;
-            segundo_maximo = numero;
-        } else if (numero > tercer_maximo) {
-            tercer_maximo = numero;
+struct TresMaximos {
+    int primerMaximo;
+    int segundoMaximo;
+    int tercerMaximo;
+};
+
+TresMaximos obtenerTresMayores(vector<int> numeros) {
+    TresMaximos maximos = {INT_MIN, INT_MIN, INT_MIN};
+    
+    for (int i = 0; i < numeros.size(); i++) {
+        if (numeros[i] > maximos.primerMaximo) {
+            maximos.tercerMaximo = maximos.segundoMaximo;
+            maximos.segundoMaximo = maximos.primerMaximo;
+            maximos.primerMaximo = numeros[i];
+        } else if (numeros[i] > maximos.segundoMaximo) {
+            maximos.tercerMaximo = maximos.segundoMaximo;
+            maximos.segundoMaximo = numeros[i];
+        } else if (numeros[i] > maximos.tercerMaximo) {
+            maximos.tercerMaximo = numeros[i];
         }
-        cout << "Ingrese un numero: ";
-        cin >> numero;
     }
-    cout << "Los tres mayores son: " << maximo << ", " << segundo_maximo << ", " << tercer_maximo << endl;
-    return 0;
+     
+    return maximos;
+}
+
+int main() {
+    int numero;
+    vector<int> numeros;
+
+    do {
+        cout << "Ingrese un numero (0 para terminar): ";
+        cin >> numero;
+        numeros.push_back(numero);
+    } while (numero != 0);
+
+    TresMaximos maximos = obtenerTresMayores(numeros);
+
+    cout << "Los maximos son: " << maximos.primerMaximo << ", " << maximos.segundoMaximo << ", " << maximos.tercerMaximo << endl;
+
 }

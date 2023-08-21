@@ -10,9 +10,9 @@ using namespace std;
 int main() {
     int m, n, resultado;
     char opcion;
-    cout << "Ingrese un número: ";
+    cout << "Ingrese un numero: ";
     cin >> m;
-    cout << "Ingrese otro número: ";
+    cout << "Ingrese otro numero: ";
     cin >> n;
     cout << "Ingrese la operacion a realizar (+, -, *, /): ";
     cin >> opcion;

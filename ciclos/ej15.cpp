@@ -4,7 +4,7 @@ datos a medida que se los ingresa junto con la suma parcial de los mismos.
 */
 
 #include <iostream>
-// cl /EHsc hello.cpp
+
 using namespace std;
 
 int main() {

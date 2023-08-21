@@ -10,7 +10,7 @@ using namespace std;
 
 int main() {
     int inicial;
-    cout << "Ingrese un número: ";
+    cout << "Ingrese un numero: ";
     cin >> inicial;
 
     for (int i = inicial; i < inicial + 20; i++) {

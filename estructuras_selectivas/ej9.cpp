@@ -9,15 +9,15 @@ using namespace std;
 
 int main() {
     int m, n;
-    cout << "Ingrese un número: ";
+    cout << "Ingrese un numero: ";
     cin >> m;
-    cout << "Ingrese otro número: ";
+    cout << "Ingrese otro numero: ";
     cin >> n;
 
     if (m % n == 0) {
-        cout << "El número " << m << " es divisible por " << n << endl;
+        cout << "El numero " << m << " es divisible por " << n << endl;
     } else {
-        cout << "El número " << m << " no es divisible por " << n << endl;
+        cout << "El numero " << m << " no es divisible por " << n << endl;
     }
 
     return 0;

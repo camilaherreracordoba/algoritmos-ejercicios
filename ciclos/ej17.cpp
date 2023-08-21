@@ -10,7 +10,7 @@ using namespace std;
 
 int maximo(vector<int> numeros) {
     int maximo = numeros[0];
-    for(int i = 1; i < numeros.size(); i++) {
+    for(int i = 0; i < numeros.size(); i++) {
         if (numeros[i] > maximo) {
             maximo = numeros[i];
         }
@@ -20,7 +20,7 @@ int maximo(vector<int> numeros) {
 
 int minimo(vector<int> numeros) {
     int minimo = numeros[0];
-    for(int i = 1; i < numeros.size(); i++) {
+    for(int i = 0; i < numeros.size(); i++) {
         if (numeros[i] < minimo) {
             minimo = numeros[i];
         }
@@ -29,7 +29,7 @@ int minimo(vector<int> numeros) {
 }
 int cantidad_apariciones(vector<int> numeros, int numero) {
     int cantidad = 0;
-    for(int i = 1; i < numeros.size(); i++) {
+    for(int i = 0; i < numeros.size(); i++) {
         if (numeros[i] == numero) {
             cantidad++;
         }

@@ -1,15 +1,14 @@
-#include <iostream>
-#include<tuple>
-#include <vector>
-#include <string>
-// cl /EHsc hello.cpp
-using namespace std;
-
 /*
 20) Dada una serie de nombres con sus salarios respectivos, determinar el salario
 máximo, el mínimo y la persona que percibe cada uno.
 */
 
+#include <iostream>
+#include<tuple>
+#include <vector>
+#include <string>
+
+using namespace std;
 
 tuple<string, int> personaSalarioMaximo(vector<tuple<string, int>> personas) {
     tuple<string, int> maximo = personas[0];
@@ -35,17 +34,16 @@ int main() {
     tuple<string, int> persona;
     vector<tuple<string, int>> personas;
 
-    // ????
-    persona = make_tuple("Juan", 1000);
-    personas.push_back(persona);
-    persona = make_tuple("Pedro", 2000);
-    personas.push_back(persona);
-    persona = make_tuple("Maria", 3000);
-    personas.push_back(persona);
-    persona = make_tuple("Jose", 4000);
-    personas.push_back(persona);
-    persona = make_tuple("Luis", 500);
-    personas.push_back(persona);
+    do {
+        cout << "Ingrese el nombre de la persona (0 para terminar): ";
+        cin >> get<0>(persona);
+        if (get<0>(persona) != "0") {
+            cout << "Ingrese el salario de la persona: ";
+            cin >> get<1>(persona);
+            personas.push_back(persona);
+        }
+    } while (get<0>(persona) != "0");
+    
     
     tuple<string, int> salario_min = personaSalarioMinimo(personas);
     tuple<string, int> salario_max = personaSalarioMaximo(personas);

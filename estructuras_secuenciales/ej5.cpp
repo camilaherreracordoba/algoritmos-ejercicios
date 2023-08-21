@@ -13,7 +13,7 @@ int main() {
     cout << "Ingrese la altura: ";
     cin >> altura;
 
-    double perimetro = 2 * base + 2 * altura;
+    double perimetro = 2 * (base + altura);
     double superficie = base * altura;
 
     cout << "El perímetro es: " << perimetro << endl;
